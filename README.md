@@ -52,7 +52,7 @@ Algunos de los motivos de esta elección son:
 ## Bloque C: Documentación de Explotación  
 
 1. El fragmento de *docker-compose.yml* necesario.
-
+```
 services:
 
   odoo:
@@ -116,7 +116,7 @@ volumes:
   db\_data:
 
   odoo\_data:
-
+```
 2. El comando para realizar un backup de la base de datos PostgreSQL.
 
 	Copia de seguridad de los datos de PostgreSQL utilizando un volcado SQL:

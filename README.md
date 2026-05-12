@@ -121,13 +121,7 @@ volumes:
 
 	Copia de seguridad de los datos de PostgreSQL utilizando un volcado SQL:
 
-	pg\_dump dbname \> dumpfile
-
-	Para restaurarlo:
-
-	creadob dbname
-
-psql dbname \< dumpfile
+	pg_dump -U odoo -d odoo
 
 ## Bibliografía
 

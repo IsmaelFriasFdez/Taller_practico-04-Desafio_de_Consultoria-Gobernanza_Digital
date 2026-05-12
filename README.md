@@ -101,7 +101,7 @@ volumes:
 
 	Copia de seguridad de los datos de PostgreSQL utilizando un volcado SQL:
 ```
-	pg_dump -U odoo -d odoo
+	pg_dump -U odoo -d odoo > odoo.sql
 ```
 
 ## Bibliografía

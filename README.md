@@ -54,68 +54,48 @@ Algunos de los motivos de esta elección son:
 1. El fragmento de *docker-compose.yml* necesario.
 ```
 services:
-
+#Instalación de los servicios Odoo y PostgreSQL utilizando Docker Compose
   odoo:
-
+  #Utilizamos la imagen oficial de Odoo, asignamos un nombre al contenedor, reinicia automáticamente a menos que se detenga manualmente.
     image: odoo:latest
-
-    container\_name: odoo
-
+    container_name: odoo
     restart: unless-stopped
-
-    depends\_on:
-
-      \- db
-
+    depends_on:
+      - db
+    #Incluimos el puerto de Odoo para acceder a la aplicación desde el navegador.
     ports:
-
-      \- "8200:8069"
-
+      - "8200:8069"
+    #Montamos los volumenes para retener los datos de Odoo, la configuración personalizada y los módulos adicionales.
     volumes:
-
-      \- odoo\_data:/var/lib/odoo
-
-      \- ./config:/etc/odoo
-
-      \- ./addons:/mnt/extra-addons
-
+      - odoo_data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    # Configuración de la conexión a la base de datos
     environment:
-
-      \- HOST=db
-
-      \- USER=odoo
-
-      \- PASSWORD=odoo
-
-    command: odoo \-d odoo \--db\_user=odoo \--db\_password=odoo \-i base
-
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+    # Comando para iniciar Odoo con la base de datos y el módulo base instalado
+    command: odoo -d odoo --db_user=odoo --db_password=odoo -i base
   db:
-
+    #Utilizamos la imagen oficial de PostgreSQL, asignamos un nombre al contenedor, reinicia automáticamente a menos que se detenga manualmente.
     image: postgres:latest
-
-    container\_name: db
-
+    container_name: db
     restart: unless-stopped
-
+    # Configuración de las variables de entorno para PostgreSQL, incluyendo el usuario, contraseña, nombre de la base de datos y la ubicación de los datos.
     environment:
-
-      \- POSTGRES\_USER=odoo
-
-      \- POSTGRES\_PASSWORD=odoo
-
-      \- POSTGRES\_DB=odoo
-
-      \- PGDATA=/var/lib/postgresql/data/pgdata
-
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    #Montamos el volumen para retener los datos de la base de datos.
     volumes:
-
-      \- db\_data:/var/lib/postgresql/data
-
+      - db_data:/var/lib/postgresql/data
+#Definimos los volúmenes para almacenar los datos de la base de datos y de Odoo, asegurando que los datos persistan incluso si los contenedores se detienen o eliminan.
 volumes:
+  db_data:
+  odoo_data:
 
-  db\_data:
-
-  odoo\_data:
 ```
 2. El comando para realizar un backup de la base de datos PostgreSQL.
 

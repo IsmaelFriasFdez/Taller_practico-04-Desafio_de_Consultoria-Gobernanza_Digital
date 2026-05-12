@@ -16,16 +16,16 @@ Algunos de los motivos de esta elección son:
 
 **El cálculo de TCO estimado a 1 y 3 años sería:**
 
-**Licencias:** 0€ ya que Odoo es completamente gratuito.  
-**Coste cada año:** 0€  
-**Coste cada 3 años:** 0€
-
-**Implantación:** podemos estimar 100 horas de desarrollo costando aproximadamente 40€ por hora.  
-**Coste de implantación:** 4.000€
-
-**Coste operativo:** se utilizará un servidor en nube (cloud) de AWS (Amazon Web Services) que tendrá un coste estimado de 80€ mensuales.  
-**Coste cada año:** 960€  
-**Coste cada 3 años:** 2.880€.
+> **Licencias:** 0€ ya que Odoo es completamente gratuito.  
+> **Coste cada año:** 0€  
+> **Coste cada 3 años:** 0€
+>
+> **Implantación:** podemos estimar 100 horas de desarrollo costando aproximadamente 40€ por hora.  
+> **Coste de implantación:** 4.000€
+>
+> **Coste operativo:** se utilizará un servidor en nube (cloud) de AWS (Amazon Web Services) que tendrá un coste estimado de 80€ mensuales.  
+> **Coste cada año:** 960€  
+> **Coste cada 3 años:** 2.880€.
 
 ## Bloque B: Diseño de Seguridad RBAC  
 

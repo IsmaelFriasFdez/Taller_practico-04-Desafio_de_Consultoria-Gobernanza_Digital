@@ -120,8 +120,9 @@ volumes:
 2. El comando para realizar un backup de la base de datos PostgreSQL.
 
 	Copia de seguridad de los datos de PostgreSQL utilizando un volcado SQL:
-
+```
 	pg_dump -U odoo -d odoo
+```
 
 ## Bibliografía
 

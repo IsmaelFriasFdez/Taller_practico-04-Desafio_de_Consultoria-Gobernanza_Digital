@@ -25,8 +25,8 @@ Algunos de los motivos de esta elección son:
 
 **El cálculo de TCO estimado a 3 años sería:**
 
-	**Licencias:** 0€ ya que Odoo es completamente gratuito.  
-	Coste cada 3 años: 0€
+**Licencias:** 0€ ya que Odoo es completamente gratuito.  
+Coste cada 3 años: 0€
 
 **Implantación:** podemos estimar 100 horas de desarrollo costando aproximadamente 25€ por hora.  
 Coste: 2.500€

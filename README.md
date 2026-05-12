@@ -14,7 +14,7 @@ Algunos de los motivos de esta elección son:
 
 **4.-** Odoo tiene una gran escalabilidad a largo plazo por lo que podrán ir añadiendo apartados conforme crezca la empresa.
 
-**El cálculo de TCO estimado a 3 años sería:**
+**El cálculo de TCO estimado a 1 y 3 años sería:**
 
 **Licencias:** 0€ ya que Odoo es completamente gratuito.  
 **Coste cada año:** 0€  

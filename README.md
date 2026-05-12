@@ -27,16 +27,16 @@ Algunos de los motivos de esta elección son:
 **Coste cada año:** 960€  
 **Coste cada 3 años:** 2.880€.
 
-## Bloque B: Diseño de Seguridad RBAC 
+## Bloque B: Diseño de Seguridad RBAC  
 
-**RBAC(control de acceso en roles):** Cada usuario tendrá permisos según su función dentro de la empresa.
-
-**Diseño de matriz:**   
-**El administrador** tiene el acceso total al sistema ya sea los usuarios, configuración, inventario, facturación y seguridad.
-
-**Comercial** sólo puede ver a sus clientes, gestionar el presupuesto, consultar las facturas relacionadas .
-
-**Operario de almacén:** Consultar las facturas, la gestión de pagos, revisar informes contables, este no puede modificar el inventario.
+| Acceso | Administrador | Comercial | Operario Almacen | Contable |
+| :---- | :---- | :---- | :---- | :---- |
+| **Clientes** | Editor | Solo clientes | Sin permiso | Lector |
+| **Presupuesto** | Acceso total | Editor | Sin Permiso | Lector |
+| **Factura** | Acceso total | Lector | Sin Permiso | Lector |
+| **Inventario** | Acceso total | Lector | Acceso al stock | Lector |
+| **Compras** | Acceso total | Sin permisos | Lector | Sin Permiso |
+| **Configuración** | Acceso total | Sin permisos | Sin Permiso | Sin Permiso |
 
 **Los beneficios que encontramos para esta implantación son:**
 
@@ -49,11 +49,73 @@ Algunos de los motivos de esta elección son:
 - Se puede trabajar desde cualquier lugar desde el control remoto  
 - Escalabilidad futura
 
-## 
-
 ## Bloque C: Documentación de Explotación  
 
 1. El fragmento de *docker-compose.yml* necesario.
+
+services:
+
+  odoo:
+
+    image: odoo:latest
+
+    container\_name: odoo
+
+    restart: unless-stopped
+
+    depends\_on:
+
+      \- db
+
+    ports:
+
+      \- "8200:8069"
+
+    volumes:
+
+      \- odoo\_data:/var/lib/odoo
+
+      \- ./config:/etc/odoo
+
+      \- ./addons:/mnt/extra-addons
+
+    environment:
+
+      \- HOST=db
+
+      \- USER=odoo
+
+      \- PASSWORD=odoo
+
+    command: odoo \-d odoo \--db\_user=odoo \--db\_password=odoo \-i base
+
+  db:
+
+    image: postgres:latest
+
+    container\_name: db
+
+    restart: unless-stopped
+
+    environment:
+
+      \- POSTGRES\_USER=odoo
+
+      \- POSTGRES\_PASSWORD=odoo
+
+      \- POSTGRES\_DB=odoo
+
+      \- PGDATA=/var/lib/postgresql/data/pgdata
+
+    volumes:
+
+      \- db\_data:/var/lib/postgresql/data
+
+volumes:
+
+  db\_data:
+
+  odoo\_data:
 
 2. El comando para realizar un backup de la base de datos PostgreSQL.
 

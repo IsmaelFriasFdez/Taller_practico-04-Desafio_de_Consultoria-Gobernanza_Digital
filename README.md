@@ -26,7 +26,7 @@ Algunos de los motivos de esta elección son:
 **El cálculo de TCO estimado a 3 años sería:**
 
 **Licencias:** 0€ ya que Odoo es completamente gratuito.  
-Coste cada 3 años: 0€
+	Coste cada 3 años: 0€
 
 **Implantación:** podemos estimar 100 horas de desarrollo costando aproximadamente 25€ por hora.  
 Coste: 2.500€
@@ -39,7 +39,22 @@ Coste cada 3 años: 2.880€.
 **RBAC(control de acceso en roles):** Cada usuario tendrá permisos según su función dentro de la empresa.
 
 **Diseño de matriz:**   
-**Administrador** tiene el acceso total al sistema ya sea los usuarios, configuracion, inve
+**El administrador** tiene el acceso total al sistema ya sea los usuarios, configuración, inventario, facturación y seguridad.
+
+**Comercial** sólo puede ver a sus clientes, gestionar el presupuesto, consultar las facturas relacionadas .
+
+**Operario de almacén:** Consultar las facturas, la gestión de pagos, revisar informes contables, este no puede modificar el inventario.
+
+**Los beneficios que encontramos para esta implantación son:**
+
+- Centralización de la información  
+- Menos errores  
+- Más seguridad  
+- Automatizar procesos  
+- Mejor control del inventario  
+- Aumento de productividad  
+- Se puede trabajar desde cualquier lugar desde el control remoto  
+- Escalabilidad futura
 
 ## 
 
@@ -49,7 +64,15 @@ Coste cada 3 años: 2.880€.
 
 2. El comando para realizar un backup de la base de datos PostgreSQL.
 
-	
+	Copia de seguridad de los datos de PostgreSQL utilizando un volcado SQL:
+
+	pg\_dump dbname \> dumpfile
+
+	Para restaurarlo:
+
+	creadob dbname
+
+psql dbname \< dumpfile
 
 [https://www.paloaltonetworks.es/cyberpedia/what-is-the-principle-of-least-privilege](https://www.paloaltonetworks.es/cyberpedia/what-is-the-principle-of-least-privilege)
 
